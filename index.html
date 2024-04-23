@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delta Skin Editor</title>
+</head>
+
+<body>
+    <div id="wrap">
+        <header>
+            <h1>Delta Skin Editor</h1>
+        </header>
+        <main>
+            <div id="sidebar">
+                <div class="textGroup">
+                    <label for="skinName">Skin name: </label>
+                    <input type="text" name="skinName" id="skinName">
+                </div>
+                <div class="textGroup">
+                    <label for="skinID">Skin ID: (e.g. <code>com.novachild.gba.onehand.black</code>)</label>
+                    <input type="text" name="skinID" id="skinID">
+                </div>
+                <div class="textGroup">
+                    <label for="gameTypeChoice">Game Type for this Skin</label>
+                    <select name="gameTypeChoice" id="gameTypeChoice">
+                        <option id="gba">Game Boy Advance</option>
+                        <option id="gbc">Game Boy (Color)</option>
+                        <option id="nds">Nintendo DS</option>
+                        <option id="snes">Super Nintendo Entertainment System</option>
+                    </select>
+                </div>
+                <div>
+                    Canvas types to include in skin:
+                    <ul id="canvasTypeList">
+                        <li><input type="checkbox" checked="true" name="chkStdPortait" id="chkStdPortrait">
+                            <label for="chkStdPortrait">iPhone - Standard - Portrait</label>
+                        </li>
+                        <li><input type="checkbox" checked="true" name="chkEtePortait" id="chkEtePortait">
+                            <label for="chkEtePortait">iPhone - Edge to Edge - Portrait</label>
+                        </li>
+                        <li><input type="checkbox" checked="true" name="chkStdLandscape" id="chkStdLandscape">
+                            <label for="chkStdLandscape">iPhone - Standard - Landscape</label>
+                        </li>
+                        <li><input type="checkbox" checked="true" name="chkEteLandscape" id="chkEteLandscape">
+                            <label for="chkEteLandscape">iPhone - Edge to Edge - Landscape</label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="textGroup">
+                    <label for="canvasToShow">Canvas to show now:</label>
+                    <select name="canvasToShow" id="canvasToShow">
+                        <option id="etePortrait">iPhone - Edge to Edge - Portrait</option>
+                        <option id="stdPortrait">iPhone - Standard - Portrait</option>
+                        <option id="eteLandscape">iPhone - Edge to Edge - Landscape</option>
+                        <option id="stdLandscape">iPhone - Standard - Landscape</option>  
+                    </select>
+                </div>
+            </div>
+            <div id="mainArea">
+
+                <div id="phoneCanvas" class="etePortrait">
+                    <div id="screen" class="gba"></div>
+                </div>
+                <div id="buttonBox">
+                    <img id="aButton" class="button" src="a.png">
+                    <img id="bButton" class="button" src="b.png">
+                    <img id="xButton" class="button" src="x.png">
+                    <img id="yButton" class="button" src="y.png">
+                    <img id="startButton" class="button" src="start.png">
+                    <img id="selectButton" class="button" src="select.png">
+                    <img id="menuButton" class="button" src="menu.png">
+                    <img id="dpad" class="button" src="dpad.png">
+                    <img id="stick" class="button" src="stick.png">
+                    <img id="lButton" class="button" src="l.png">
+                    <img id="rButton" class="button" src="r.png">
+                    <img id="ffButton" class="button" src="ff.png">
+                    <img id="saveButton" class="button" src="save.png">
+                    <img id="loadButton" class="button" src="load.png">
+                </div>
+
+            </div>
+        </main>
+        <footer>
+
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

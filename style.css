@@ -1,0 +1,119 @@
+* {
+    box-sizing:border-box;
+}
+
+html {
+    margin: 0;
+    padding:0;
+}
+body {
+    background-color:black;
+    padding:0;
+    margin:0;
+    display:flex;
+}
+#wrap {
+    display:flex;
+    flex-direction:column;
+    background-color:aqua;
+    max-width: 1200px;
+    width: 90%;
+    margin:auto;
+    padding: 2em;
+    min-width: 600px;
+}
+
+main {
+    display:flex;
+    flex-direction:row;
+   
+}
+
+#sidebar {
+    padding: 1rem;
+    gap:0.5rem;
+    background-color:#cccccc;
+    flex-basis: 40%; 
+    display:flex;
+    flex-direction:column; 
+}
+
+#mainArea {
+    background-color: lightcoral;
+    flex-basis: 60%;
+    display:flex;
+    align-items:stretch;
+}
+
+#buttonBox {
+    background-color:green;
+    flex-grow:1;
+    margin: 5rem 0.5rem 1rem 0.5rem;
+    border-radius: 20px;
+    border:3px solid white;
+}
+
+#canvasTypeList {
+    list-style:none;
+    margin-top: 0;
+}
+
+.textGroup {
+    display:flex;
+    flex-direction:column;
+    gap: 0;
+}
+
+#phoneCanvas {
+    position:relative;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color:black;
+    border:3px solid white;
+    border-radius:40px;
+    flex-shrink:0;
+    flex-grow:0;
+}
+
+#phoneCanvas.etePortrait {
+    box-sizing:content-box;
+    width: 414px;
+    height: 896px;
+}
+
+#phoneCanvas.stdPortrait {
+    box-sizing:content-box;
+    width: 414px;
+    height: 736px;
+}
+
+#screen {
+    position:absolute;
+    background-color:aqua;
+    top:4px;
+}
+
+.etePortrait > #screen {
+    top:33px;
+}
+
+.etePortrait > #screen.gba, .stdPortrait > #screen.gba {
+    width:414px;
+    height:276px;
+}
+
+.etePortrait > #screen.gbc, .stdPortrait > #screen.gbc {
+    width:414px;
+    height:373px;
+}
+
+.etePortrait > #screen.nds, .stdPortrait > #screen.nds {
+    width:414px;
+    height:621px;
+}
+
+.etePortrait > #screen.snes, .stdPortrait > #screen.snes {
+    width:414px;
+    height:362.25px;
+}
