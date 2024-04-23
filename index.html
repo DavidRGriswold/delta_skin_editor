@@ -55,7 +55,7 @@
                         <option id="etePortrait">iPhone - Edge to Edge - Portrait</option>
                         <option id="stdPortrait">iPhone - Standard - Portrait</option>
                         <option id="eteLandscape">iPhone - Edge to Edge - Landscape</option>
-                        <option id="stdLandscape">iPhone - Standard - Landscape</option>  
+                        <option id="stdLandscape">iPhone - Standard - Landscape</option>
                     </select>
                 </div>
             </div>
@@ -66,20 +66,117 @@
                     <div id="controlMapping"></div>
                 </div>
                 <div id="buttonBox">
-                    <img id="aButton" width=80px class="button" src="media/a.png">
-                    <img id="bButton" width=80px class="button" src="media/b.png">
-                    <img id="xButton" width=80px class="button" src="media/x.png">
-                    <img id="yButton" width=80px class="button" src="media/y.png">
-                    <img id="startButton" width=80px class="button" src="media/start.png">
-                    <img id="selectButton" width=80px class="button" src="media/select.png">
-                    <img id="menuButton" width=50px class="button" src="media/menu.png">
-                    <img id="dpad" class="button" src="media/dpad.png">
-                    <img id="stick" width=160px class="button" src="media/stick.png">
-                    <img id="lButton" width=100px class="button" src="media/l.png">
-                    <img id="rButton" width=100px class="button" src="media/r.png">
-                    <img id="toggleFastForwardButton" width=50p class="button" src="media/ff.png">
-                    <img id="saveButton" width=50px class="button" src="media/save.png">
-                    <img id="loadButton" width=50px class="button" src="media/load.png">
+                    <div class="buttonBorder" style="width:80px">
+                        <div class="upperLeftCorner corner"></div>
+                        <div class="upperRightCorner corner"></div>
+                        <div class="lowerLeftCorner corner"></div>
+                        <div class="lowerRightCorner corner"></div><img id="aButton" width=80p class="button"
+                            src="media/a.png">
+                    </div>
+                    <div class="buttonBorder" style="width:80px">
+                        <div class="upperLeftCorner corner"></div>
+                        <div class="upperRightCorner corner"></div>
+                        <div class="lowerLeftCorner corner"></div>
+                        <div class="lowerRightCorner corner"></div>
+                        <img id="bButton" class="button"
+                            src="media/b.png">
+                    </div>
+                    <div class="buttonBorder" style="width:80px">
+                        <div class="upperLeftCorner corner"></div>
+                        <div class="upperRightCorner corner"></div>
+                        <div class="lowerLeftCorner corner"></div>
+                        <div class="lowerRightCorner corner"></div>
+                        <img id="xButton" class="button"
+                            src="media/x.png">
+                    </div>
+                    <div class="buttonBorder" style="width:80px">
+                        <div class="upperLeftCorner corner"></div>
+                        <div class="upperRightCorner corner"></div>
+                        <div class="lowerLeftCorner corner"></div>
+                        <div class="lowerRightCorner corner"></div>
+                        <img id="yButton" class="button"
+                            src="media/y.png">
+                    </div>
+                    <div class="buttonBorder" style="width:80px">
+                        <div class="upperLeftCorner corner"></div>
+                        <div class="upperRightCorner corner"></div>
+                        <div class="lowerLeftCorner corner"></div>
+                        <div class="lowerRightCorner corner"></div>
+                        <img id="startButton" class="button"
+                            src="media/start.png">
+                    </div>
+                    <div class="buttonBorder" style="width:80px">
+                        <div class="upperLeftCorner corner"></div>
+                        <div class="upperRightCorner corner"></div>
+                        <div class="lowerLeftCorner corner"></div>
+                        <div class="lowerRightCorner corner"></div>
+                        <img id="selectButton" class="button"
+                            src="media/select.png">
+                    </div>
+                    <div class="buttonBorder" style="width:50px">
+                        <div class="upperLeftCorner corner"></div>
+                        <div class="upperRightCorner corner"></div>
+                        <div class="lowerLeftCorner corner"></div>
+                        <div class="lowerRightCorner corner"></div>
+                        <img id="menuButton" class="button"
+                            src="media/menu.png">
+                    </div>
+                    <div class="buttonBorder" style="width:160px">
+                        <div class="upperLeftCorner corner"></div>
+                        <div class="upperRightCorner corner"></div>
+                        <div class="lowerLeftCorner corner"></div>
+                        <div class="lowerRightCorner corner"></div>
+                        <img id="dpad" class="button selected"
+                            src="media/dpad.png">
+                    </div>
+                    <div class="buttonBorder" style="width:160px">
+                        <div class="upperLeftCorner corner"></div>
+                        <div class="upperRightCorner corner"></div>
+                        <div class="lowerLeftCorner corner"></div>
+                        <div class="lowerRightCorner corner"></div>
+                        <img id="stick"
+                            class="button" src="media/stick.png">
+                    </div>
+                    <div class="buttonBorder" style="width:94px">
+                        <div class="upperLeftCorner corner"></div>
+                        <div class="upperRightCorner corner"></div>
+                        <div class="lowerLeftCorner corner"></div>
+                        <div class="lowerRightCorner corner"></div>
+                        <img id="lButton" class="button"
+                            src="media/l.png">
+                    </div>
+                    <div class="buttonBorder" style="width:94px">
+                        <div class="upperLeftCorner corner"></div>
+                        <div class="upperRightCorner corner"></div>
+                        <div class="lowerLeftCorner corner"></div>
+                        <div class="lowerRightCorner corner"></div>
+                        <img id="rButton" class="button"
+                            src="media/r.png">
+                    </div>
+                    <div class="buttonBorder" style="width:40px">
+                        <div class="upperLeftCorner corner"></div>
+                        <div class="upperRightCorner corner"></div>
+                        <div class="lowerLeftCorner corner"></div>
+                        <div class="lowerRightCorner corner"></div>
+                        <img id="toggleFastForwardButton"
+                            class="button" src="media/ff.png">
+                    </div>
+                    <div class="buttonBorder" style="width:40px">
+                        <div class="upperLeftCorner corner"></div>
+                        <div class="upperRightCorner corner"></div>
+                        <div class="lowerLeftCorner corner"></div>
+                        <div class="lowerRightCorner corner"></div>
+                        <img id="saveButton" class="button"
+                            src="media/save.png">
+                    </div>
+                    <div class="buttonBorder" style="width:40px">
+                        <div class="upperLeftCorner corner"></div>
+                        <div class="upperRightCorner corner"></div>
+                        <div class="lowerLeftCorner corner"></div>
+                        <div class="lowerRightCorner corner"></div>
+                        <img id="loadButton" class="button"
+                            src="media/load.png">
+                    </div>
                 </div>
 
             </div>

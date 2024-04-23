@@ -36,17 +36,17 @@ function updateCanvas() {
     let ourOption = gameTypeChoice.options.namedItem(gtype);
     ourOption.selected=true;
     // read the currentRep and put the buttons in the right place
-    /** @type HTMLImageElement */
+    /** @type HTMLDivElement */
     let img;
     for (let button of currentRep.items) {
         if (button.thumbstick) {
             //thumbstick
-            img = document.querySelector("#stick");
+            img = document.querySelector("#stick").parentElement;
         } else if (button.inputs["up"]) {
             //dpad
-            img = document.querySelector("#dpad");
+            img = document.querySelector("#dpad").parentElement;
         } else {
-            img = document.querySelector("#" + button.inputs[0] + "Button");
+            img = document.querySelector("#" + button.inputs[0] + "Button").parentElement;
         }
         controlArea.appendChild(img);
             img.style.position="absolute";

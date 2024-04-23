@@ -1,3 +1,5 @@
+
+
 * {
     box-sizing:border-box;
 }
@@ -48,6 +50,11 @@ main {
 }
 
 #buttonBox {
+   
+    align-items:flex-start;
+    justify-content:left;
+    flex-wrap:wrap;
+    
     background-color:green;
     flex-grow:1;
     margin: 5rem 0.5rem 1rem 0.5rem;
@@ -142,3 +149,68 @@ main {
     width:414px;
     height:362.25px;
 }
+
+.button {
+    width:100%;
+    height:100%;
+}
+.buttonBorder{
+    display:inline-block;
+    width:fit-content;
+    position:relative;
+    
+    border: 1px lightgray dotted;
+}
+
+#buttonBox .buttonBorder {
+    margin:8px;
+    
+}
+
+#buttonBox .button {
+    margin-bottom:-4px;
+}
+
+.buttonBorder.selected{
+
+    border:1px aqua dashed;
+}
+
+.corner {
+    --cornerSize: 6px;
+    width:var(--cornerSize);
+    height:var(--cornerSize);
+    border-radius:var(--cornerSize);
+    border: 1px solid white;
+    position:absolute;
+}
+
+
+.lowerRightCorner {
+    bottom:calc(0px - var(--cornerSize) / 2);
+    right:calc(0px - var(--cornerSize) / 2);
+    cursor:se-resize;
+}
+
+.upperRightCorner {
+    top: calc(0px - var(--cornerSize) / 2);
+    right: calc(0px - var(--cornerSize) / 2);
+    cursor:ne-resize;
+}
+
+.lowerLeftCorner {
+    bottom: calc(0px - var(--cornerSize) / 2);
+    left: calc(0px - var(--cornerSize) / 2);
+    cursor:sw-resize;
+}
+
+.upperLeftCorner {
+    top:calc(0px - var(--cornerSize) / 2);
+    left:calc(0px - var(--cornerSize) / 2);
+    cursor:nw-resize;
+}
+
+.buttonBorder:hover {
+    cursor:move;
+}
+
