@@ -7,7 +7,7 @@ html {
     padding:0;
 }
 body {
-    background-color:black;
+    background-color:aqua;
     padding:0;
     margin:0;
     display:flex;
@@ -16,11 +16,9 @@ body {
     display:flex;
     flex-direction:column;
     background-color:aqua;
-    max-width: 1400px;
     width: 95%;
     margin:auto;
     padding: 2em;
-    min-width: 600px;
 }
 
 main {
@@ -45,12 +43,20 @@ main {
     align-items:stretch;
 }
 
+#mainArea.landscape {
+    flex-direction:column;
+}
+
 #buttonBox {
     background-color:green;
     flex-grow:1;
     margin: 5rem 0.5rem 1rem 0.5rem;
     border-radius: 20px;
     border:3px solid white;
+}
+
+.landscape #buttonBox {
+    margin: 1rem;
 }
 
 #canvasTypeList {
@@ -66,26 +72,45 @@ main {
 
 #phoneCanvas {
     position:relative;
-    margin-left: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin:1rem;
     background-color:black;
     border:3px solid white;
     border-radius:40px;
     flex-shrink:0;
     flex-grow:0;
+    overflow:hidden;
 }
-
+#controlMapping {
+    box-sizing:content-box;
+    border-top:1px gray dotted;
+    position:absolute;
+    bottom: 0px;
+    width:414px;
+    height:354px;
+}
 #phoneCanvas.etePortrait {
     box-sizing:content-box;
     width: 414px;
     height: 896px;
+
 }
 
 #phoneCanvas.stdPortrait {
     box-sizing:content-box;
     width: 414px;
     height: 736px;
+}
+
+#phoneCanvas.eteLandscape {
+    box-sizing:content-box;
+    width: 896px;
+    height: 414px;
+}
+
+#phoneCanvas.stdLandscape {
+    box-sizing:content-box;
+    width: 736px;
+    height: 414px;
 }
 
 #screen {
