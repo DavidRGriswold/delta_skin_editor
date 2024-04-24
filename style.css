@@ -91,9 +91,15 @@ main {
     box-sizing:content-box;
     border-top:1px gray dotted;
     position:absolute;
+    overflow:hidden;
     bottom: 0px;
     width:414px;
     height:354px;
+    background-color:black;
+}
+
+#controlMapping.print {
+    border:0;
 }
 #phoneCanvas.etePortrait {
     box-sizing:content-box;
@@ -156,10 +162,13 @@ main {
 }
 .buttonBorder{
     display:inline-block;
-    width:fit-content;
     position:relative;
     
     border: 1px lightgray dotted;
+}
+
+.print .buttonBorder {
+    border: 0;
 }
 
 #buttonBox .buttonBorder {
@@ -176,7 +185,11 @@ main {
     border:1px aqua dashed;
 }
 
-.corner {
+.print .corner {
+    display:none;
+}
+
+#phoneCanvas .corner {
     --cornerSize: 6px;
     width:var(--cornerSize);
     height:var(--cornerSize);

@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js" integrity="sha512-ToRWKKOvhBSS8EtqSflysM/S7v9bB9V0X3B1+E7xo7XZBEZCPL3VX5SFIp8zxY19r7Sz0svqQVbAOx+QcLQSAQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" integrity="sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Delta Skin Editor</title>
 </head>
 
@@ -58,6 +62,33 @@
                         <option id="stdLandscape">iPhone - Standard - Landscape</option>
                     </select>
                 </div>
+                <div class="textGroup">
+                    <button id="downloadButton" id="downloadButton">Download PDF</button>
+                    <button id="downloadJSON" id="downloadJSON">Download JSON</button>
+                </div>
+
+                <div class="textGroup">
+                    <h3>Instructions</h3>
+                    <ol>
+                    <li>Set your name, id, and game type at the top.</li> 
+                    <li>Flip between the various
+                        canvases and set up your buttons by dragging and dropping.</li>
+                    <li>Use the "Download PDF" button one at a time to download all four PDFs.</li>
+                    <li>Use the "Download JSON" button to download your info.json file</li>
+                    <li>On your computer, make a ZIP file that includes all five files. </li>
+                    <li>Rename the file with the extension ".deltaskin"</li>
+                    <li>Put on phone. Profit??</li>
+
+                </ol>
+                <h3>Limitations</h3>
+                <ol>
+                <li>Right now, the checkboxes don't do anything -- all four screens will be included always</li>
+                <li>I don't think the .deltaskin file can have an internal folder - the files need to be at the top level. That can be tricky with built-in zip tools, try 7-zip.</li>
+                <li>Resizing doesn't work yet.</li>
+                </ol>
+                
+                </div>
+                
             </div>
             <div id="mainArea">
 
@@ -66,14 +97,15 @@
                     <div id="controlMapping"></div>
                 </div>
                 <div id="buttonBox">
-                    <div class="buttonBorder" style="width:80px">
+                    <div id="abox" class="buttonBorder" style="width:80px">
                         <div class="upperLeftCorner corner"></div>
                         <div class="upperRightCorner corner"></div>
                         <div class="lowerLeftCorner corner"></div>
-                        <div class="lowerRightCorner corner"></div><img id="aButton" width=80p class="button"
+                        <div class="lowerRightCorner corner"></div>
+                        <img id="aButton" width=80p class="button"
                             src="media/a.png">
                     </div>
-                    <div class="buttonBorder" style="width:80px">
+                    <div id="bbox" class="buttonBorder" style="width:80px">
                         <div class="upperLeftCorner corner"></div>
                         <div class="upperRightCorner corner"></div>
                         <div class="lowerLeftCorner corner"></div>
@@ -81,7 +113,7 @@
                         <img id="bButton" class="button"
                             src="media/b.png">
                     </div>
-                    <div class="buttonBorder" style="width:80px">
+                    <div id="xbox" class="buttonBorder" style="width:80px">
                         <div class="upperLeftCorner corner"></div>
                         <div class="upperRightCorner corner"></div>
                         <div class="lowerLeftCorner corner"></div>
@@ -89,7 +121,7 @@
                         <img id="xButton" class="button"
                             src="media/x.png">
                     </div>
-                    <div class="buttonBorder" style="width:80px">
+                    <div id="ybox" class="buttonBorder" style="width:80px">
                         <div class="upperLeftCorner corner"></div>
                         <div class="upperRightCorner corner"></div>
                         <div class="lowerLeftCorner corner"></div>
@@ -97,7 +129,7 @@
                         <img id="yButton" class="button"
                             src="media/y.png">
                     </div>
-                    <div class="buttonBorder" style="width:80px">
+                    <div id="startbox" class="buttonBorder" style="width:80px">
                         <div class="upperLeftCorner corner"></div>
                         <div class="upperRightCorner corner"></div>
                         <div class="lowerLeftCorner corner"></div>
@@ -105,7 +137,7 @@
                         <img id="startButton" class="button"
                             src="media/start.png">
                     </div>
-                    <div class="buttonBorder" style="width:80px">
+                    <div id="selectbox" class="buttonBorder" style="width:80px">
                         <div class="upperLeftCorner corner"></div>
                         <div class="upperRightCorner corner"></div>
                         <div class="lowerLeftCorner corner"></div>
@@ -113,7 +145,7 @@
                         <img id="selectButton" class="button"
                             src="media/select.png">
                     </div>
-                    <div class="buttonBorder" style="width:50px">
+                    <div id="menubox" class="buttonBorder" style="width:50px">
                         <div class="upperLeftCorner corner"></div>
                         <div class="upperRightCorner corner"></div>
                         <div class="lowerLeftCorner corner"></div>
@@ -121,7 +153,7 @@
                         <img id="menuButton" class="button"
                             src="media/menu.png">
                     </div>
-                    <div class="buttonBorder" style="width:160px">
+                    <div id="dpadbox" class="buttonBorder" style="width:160px">
                         <div class="upperLeftCorner corner"></div>
                         <div class="upperRightCorner corner"></div>
                         <div class="lowerLeftCorner corner"></div>
@@ -129,7 +161,7 @@
                         <img id="dpad" class="button selected"
                             src="media/dpad.png">
                     </div>
-                    <div class="buttonBorder" style="width:160px">
+                    <div id="stickbox" class="buttonBorder" style="width:160px">
                         <div class="upperLeftCorner corner"></div>
                         <div class="upperRightCorner corner"></div>
                         <div class="lowerLeftCorner corner"></div>
@@ -137,7 +169,7 @@
                         <img id="stick"
                             class="button" src="media/stick.png">
                     </div>
-                    <div class="buttonBorder" style="width:94px">
+                    <div id="lbox" class="buttonBorder" style="width:94px">
                         <div class="upperLeftCorner corner"></div>
                         <div class="upperRightCorner corner"></div>
                         <div class="lowerLeftCorner corner"></div>
@@ -145,7 +177,7 @@
                         <img id="lButton" class="button"
                             src="media/l.png">
                     </div>
-                    <div class="buttonBorder" style="width:94px">
+                    <div id="rbox" class="buttonBorder" style="width:94px">
                         <div class="upperLeftCorner corner"></div>
                         <div class="upperRightCorner corner"></div>
                         <div class="lowerLeftCorner corner"></div>
@@ -153,7 +185,7 @@
                         <img id="rButton" class="button"
                             src="media/r.png">
                     </div>
-                    <div class="buttonBorder" style="width:40px">
+                    <div id="ffbox" class="buttonBorder" style="width:40px">
                         <div class="upperLeftCorner corner"></div>
                         <div class="upperRightCorner corner"></div>
                         <div class="lowerLeftCorner corner"></div>
@@ -161,7 +193,7 @@
                         <img id="toggleFastForwardButton"
                             class="button" src="media/ff.png">
                     </div>
-                    <div class="buttonBorder" style="width:40px">
+                    <div id="savebox" class="buttonBorder" style="width:40px">
                         <div class="upperLeftCorner corner"></div>
                         <div class="upperRightCorner corner"></div>
                         <div class="lowerLeftCorner corner"></div>
@@ -169,7 +201,7 @@
                         <img id="saveButton" class="button"
                             src="media/save.png">
                     </div>
-                    <div class="buttonBorder" style="width:40px">
+                    <div id="loadbox" class="buttonBorder" style="width:40px">
                         <div class="upperLeftCorner corner"></div>
                         <div class="upperRightCorner corner"></div>
                         <div class="lowerLeftCorner corner"></div>
