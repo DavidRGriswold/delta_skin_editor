@@ -17,6 +17,7 @@ let controlArea = document.querySelector("#controlMapping");
 let buttonBox = document.querySelector("#buttonBox");
 let downloadButton = document.querySelector("#downloadButton");
 let downloadJSONButton = document.querySelector("#downloadJSON");
+let bgColorInput = document.querySelector("#bgColor");
 /* set up listeners */
 
 gameTypeChoice.addEventListener("change", updateSkinObject);
@@ -27,6 +28,7 @@ controlArea.addEventListener("drop", dropInControlArea);
 buttonBox.addEventListener("drop",dropInButtonBox);
 downloadButton.addEventListener("click",downloadPDF);
 downloadJSONButton.addEventListener("click",downloadJSON);
+bgColorInput.addEventListener("change",changeBGColor);
 document.querySelectorAll(".buttonBorder").forEach(
   (el) => {
     el.setAttribute("draggable", "true");
@@ -48,6 +50,16 @@ function downloadJSON(ev) {
   let json = JSON.stringify(skinObject);
   let blob = new Blob([json],{type:"text/plan;charset=utf-8"});
   saveAs(blob,"info.json");
+}
+
+function changeBGColor(ev) {
+  let newColor = bgColorInput.value;
+  if (CSS.supports("color",newColor)) {
+    document.documentElement.style.setProperty("--portrait-bg",newColor);
+    bgColorInput.style.color = "";
+  }else{
+    bgColorInput.style.color = "darkred";
+  }
 }
 
 /** parses the skin and updates the canvas to fit */
@@ -226,11 +238,18 @@ function editSkinButton(button) {
 
 async function createPDF(area) {
   area.classList.add("print");
-  const canvas = await html2canvas(area);
+  let style = window.getComputedStyle(area);
+  if (style.backgroundColor === "rgba(0, 0, 0, 0)") {
+    canvas = await html2canvas(area,{scale:3,backgroundColor:null});
+  }else {
+    canvas = await html2canvas(area,{scale:3});
+  }
+  area.classList.remove("print");
+
+  
     var imgData = canvas.toDataURL('img/png');
-    var doc = new jsPDF({orientation:'l',unit:'px',format:[area.offsetWidth,area.offsetHeight]});
+    var doc = new jsPDF({orientation:'l',unit:'px',format:[area.offsetWidth*3,area.offsetHeight*3]});
     doc.addImage(imgData,'PNG',0,0);
-    area.classList.remove("print");
     return doc;
 }
 
@@ -446,8 +465,8 @@ let skinObject = {
               frame: {
                 x: 18,
                 y: 18,
-                width: 106,
-                height: 40
+                width: 98,
+                height: 54
               }
             },
             {
@@ -457,8 +476,8 @@ let skinObject = {
               frame: {
                 x: 612,
                 y: 18,
-                width: 106,
-                height: 40
+                width: 98,
+                height: 54
               }
             },
             {
@@ -468,8 +487,8 @@ let skinObject = {
               frame: {
                 x: 381,
                 y: 372,
-                width: 76,
-                height: 24
+                width: 40,
+                height: 40
               }
             },
             {
@@ -479,8 +498,8 @@ let skinObject = {
               frame: {
                 x: 279,
                 y: 372,
-                width: 76,
-                height: 24
+                width: 40,
+                height: 40
               }
             },
             {
@@ -490,8 +509,8 @@ let skinObject = {
               frame: {
                 x: 279,
                 y: 18,
-                width: 76,
-                height: 24
+                width: 30,
+                height: 30
               }
             },
             {
@@ -501,8 +520,8 @@ let skinObject = {
               frame: {
                 x: 381,
                 y: 18,
-                width: 76,
-                height: 24
+                width: 30,
+                height: 30
               }
             }
           ],
@@ -718,8 +737,8 @@ let skinObject = {
               frame: {
                 x: 40,
                 y: 18,
-                width: 106,
-                height: 40
+                width: 94,
+                height: 58
               }
             },
             {
@@ -729,8 +748,8 @@ let skinObject = {
               frame: {
                 x: 750,
                 y: 18,
-                width: 106,
-                height: 40
+                width: 94,
+                height: 58
               }
             },
             {
@@ -740,8 +759,8 @@ let skinObject = {
               frame: {
                 x: 461,
                 y: 372,
-                width: 76,
-                height: 24
+                width: 40,
+                height: 40
               }
             },
             {
@@ -751,8 +770,8 @@ let skinObject = {
               frame: {
                 x: 359,
                 y: 372,
-                width: 76,
-                height: 24
+                width: 40,
+                height: 40
               }
             },
             {
@@ -762,8 +781,8 @@ let skinObject = {
               frame: {
                 x: 359,
                 y: 18,
-                width: 76,
-                height: 24
+                width: 30,
+                height: 30
               }
             },
             {
@@ -773,8 +792,8 @@ let skinObject = {
               frame: {
                 x: 461,
                 y: 18,
-                width: 76,
-                height: 24
+                width: 30,
+                height: 30
               }
             }
           ],

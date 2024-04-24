@@ -54,6 +54,10 @@
                     </ul>
                 </div>
                 <div class="textGroup">
+                    <label for="bgColor">Background Color (any correct CSS):</label>
+                    <input type="text" name="bgColor" id="bgColor" value="black">
+                </div>
+                <div class="textGroup">
                     <label for="canvasToShow">Canvas to show now:</label>
                     <select name="canvasToShow" id="canvasToShow">
                         <option id="etePortrait">iPhone - Edge to Edge - Portrait</option>
@@ -90,7 +94,7 @@
                 </div>
                 
             </div>
-            <div id="mainArea">
+            <div id="mainArea" class="portrait">
 
                 <div id="phoneCanvas" class="etePortrait">
                     <div id="screen" class="gba"></div>

@@ -4,6 +4,10 @@
     box-sizing:border-box;
 }
 
+:root {
+    --portrait-bg: black;
+}
+
 html {
     margin: 0;
     padding:0;
@@ -95,7 +99,15 @@ main {
     bottom: 0px;
     width:414px;
     height:354px;
-    background-color:black;
+}
+
+.portrait #controlMapping {
+    background-color:var(--portrait-bg)
+}
+
+
+.landscape #controlMapping {
+    background-color:transparent;
 }
 
 #controlMapping.print {
