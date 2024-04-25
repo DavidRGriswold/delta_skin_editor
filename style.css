@@ -141,11 +141,14 @@ main {
 #screen {
     position:absolute;
     background-color:aqua;
-    top:4px;
+    top:20px;
 }
 
 .etePortrait > #screen {
     top:33px;
+}
+.etePortrait > #screen.gba {
+    top:115px;
 }
 
 .etePortrait > #screen.gba, .stdPortrait > #screen.gba {
@@ -158,9 +161,14 @@ main {
     height:373px;
 }
 
-.etePortrait > #screen.nds, .stdPortrait > #screen.nds {
-    width:414px;
-    height:621px;
+.etePortrait > #screen.ds, .stdPortrait > #screen.ds {
+    width:384px;
+    height:576px;
+    left: 15px;
+}
+
+.stdPortrait > #screen.ds {
+    top:0px;
 }
 
 .etePortrait > #screen.snes, .stdPortrait > #screen.snes {
@@ -174,8 +182,6 @@ main {
 }
 .buttonBorder{
     display:inline-block;
-    position:relative;
-    
     border: 1px lightgray dotted;
 }
 
@@ -183,9 +189,13 @@ main {
     border: 0;
 }
 
+#controlMapping .buttonBorder {
+    position:absolute;
+}
+
 #buttonBox .buttonBorder {
     margin:8px;
-    
+    position:static;
 }
 
 #buttonBox .button {
