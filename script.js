@@ -15,8 +15,9 @@ let screenDiv = document.querySelector("#screen");
 let mainAreaDiv = document.querySelector("#mainArea");
 let controlArea = document.querySelector("#controlMapping");
 let buttonBox = document.querySelector("#buttonBox");
-let downloadButton = document.querySelector("#downloadButton");
+let downloadPDFButton = document.querySelector("#downloadButton");
 let downloadJSONButton = document.querySelector("#downloadJSON");
+let downloadSkinButton = document.querySelector("#downloadSkin");
 let bgColorInput = document.querySelector("#bgColor");
 /* set up listeners */
 
@@ -28,9 +29,11 @@ controlArea.addEventListener("dragover", allowDrop);
 buttonBox.addEventListener("dragover", allowDrop);
 controlArea.addEventListener("drop", dropInControlArea);
 buttonBox.addEventListener("drop", dropInButtonBox);
-downloadButton.addEventListener("click", downloadPDF);
+downloadPDFButton.addEventListener("click", downloadPDF);
 downloadJSONButton.addEventListener("click", downloadJSON);
 bgColorInput.addEventListener("change", changeBGColor);
+downloadSkinButton.addEventListener("click",downloadSkin);
+
 document.querySelectorAll(".buttonBorder").forEach(
   (el) => {
     el.setAttribute("draggable", "true");
@@ -46,7 +49,6 @@ document.querySelectorAll(".corner").forEach((el) => {
   el.setAttribute("draggable", "true");
   el.addEventListener("dragstart", startResizeButton);
   el.addEventListener("drag", doResizeButton);
-  //el.addEventListener("dragend", finishResize)
 });
 
 
@@ -96,9 +98,31 @@ function doResizeButton(/** @type DragEvent */ev) {
   editSkinButton(button);
 }
 
-function finishResize(/** @type DragEvent */ev) {
-  ev.preventDefault();
-  console.log("drag over");
+async function downloadSkin(ev) {
+  let pdfs = [];
+  let pdfNames = [];
+  let ourOption = canvasSelection.selectedOptions[0];
+  // change to each choice one at a time
+  for (let option of canvasSelection.options ) {
+    option.selected = true;
+    updateSkinObject();
+    let pdf = await createPDF(controlArea);
+    pdfs.push(pdf);
+    pdfNames.push(currentRep.assets.resizable);
+  }
+  var zip = new JSZip();
+  for (let i = 0; i < pdfs.length; i++) {
+    zip.file(pdfNames[i],pdfs[i].output("blob"));
+  }
+  zip.file("info.json",createJSONBlob());
+  zip.generateAsync({type:"blob"})
+    .then(function(content) {
+        // see FileSaver.js
+        saveAs(content, skinObject.name + ".deltaskin");
+    });
+
+  ourOption.selected=true;
+  updateSkinObject();
 }
 
 async function downloadPDF(ev) {
@@ -108,9 +132,13 @@ async function downloadPDF(ev) {
 }
 
 function downloadJSON(ev) {
+   saveAs(createJSONBlob(), "info.json");
+}
+
+function createJSONBlob() {
   let json = JSON.stringify(skinObject);
   let blob = new Blob([json], { type: "text/plan;charset=utf-8" });
-  saveAs(blob, "info.json");
+  return blob;
 }
 
 function changeBGColor(ev) {
@@ -335,6 +363,7 @@ function editSkinButton(button) {
 }
 
 async function createPDF(area) {
+  let canvas;
   area.classList.add("print");
   let style = window.getComputedStyle(area);
   if (style.backgroundColor === "rgba(0, 0, 0, 0)") {
@@ -346,8 +375,8 @@ async function createPDF(area) {
 
 
   var imgData = canvas.toDataURL('img/png');
-  var doc = new jsPDF({ orientation: 'l', unit: 'px', format: [area.offsetWidth * 3, area.offsetHeight * 3] });
-  doc.addImage(imgData, 'PNG', 0, 0);
+  var doc = new jsPDF({ orientation: "l", unit: "px", format: [canvas.width, canvas.height] });
+  doc.addImage(imgData, 'PNG', 0, 0,doc.internal.pageSize.width,doc.internal.pageSize.height);
   return doc;
 }
 

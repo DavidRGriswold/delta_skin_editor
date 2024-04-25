@@ -69,6 +69,7 @@
                 <div class="textGroup">
                     <button id="downloadButton" id="downloadButton">Download PDF</button>
                     <button id="downloadJSON" id="downloadJSON">Download JSON</button>
+                    <button id="downloadSkin" id="downloadSkin">Download Skin</button>
                 </div>
 
                 <div class="textGroup">
@@ -77,17 +78,13 @@
                     <li>Set your name, id, and game type at the top.</li> 
                     <li>Flip between the various
                         canvases and set up your buttons by dragging and dropping.</li>
-                    <li>Use the "Download PDF" button one at a time to download all four PDFs.</li>
-                    <li>Use the "Download JSON" button to download your info.json file</li>
-                    <li>On your computer, make a ZIP file that includes all five files. </li>
-                    <li>Rename the file with the extension ".deltaskin"</li>
+                    <li>Use the "Download Skin" button to download the skin</li>
                     <li>Put on phone. Profit??</li>
 
                 </ol>
                 <h3>Limitations</h3>
                 <ol>
                 <li>Right now, the checkboxes don't do anything -- all four screens will be included always</li>
-                <li>I don't think the .deltaskin file can have an internal folder - the files need to be at the top level. That can be tricky with built-in zip tools, try 7-zip.</li>
                 </ol>
                 
                 </div>
@@ -105,7 +102,7 @@
                         <div class="upperRightCorner corner"></div>
                         <div class="lowerLeftCorner corner"></div>
                         <div class="lowerRightCorner corner"></div>
-                        <img id="aButton" width=80p class="button"
+                        <img alt="a" id="aButton" width=80p class="button"
                             src="media/a.png">
                     </div>
                     <div id="bbox" class="buttonBorder" style="width:80px">
@@ -113,7 +110,7 @@
                         <div class="upperRightCorner corner"></div>
                         <div class="lowerLeftCorner corner"></div>
                         <div class="lowerRightCorner corner"></div>
-                        <img id="bButton" class="button"
+                        <img alt="b" id="bButton" class="button"
                             src="media/b.png">
                     </div>
                     <div id="xbox" class="buttonBorder" style="width:80px">
@@ -121,7 +118,7 @@
                         <div class="upperRightCorner corner"></div>
                         <div class="lowerLeftCorner corner"></div>
                         <div class="lowerRightCorner corner"></div>
-                        <img id="xButton" class="button"
+                        <img alt="x" id="xButton" class="button"
                             src="media/x.png">
                     </div>
                     <div id="ybox" class="buttonBorder" style="width:80px">
@@ -129,7 +126,7 @@
                         <div class="upperRightCorner corner"></div>
                         <div class="lowerLeftCorner corner"></div>
                         <div class="lowerRightCorner corner"></div>
-                        <img id="yButton" class="button"
+                        <img alt="y" id="yButton" class="button"
                             src="media/y.png">
                     </div>
                     <div id="startbox" class="buttonBorder" style="width:80px">
@@ -137,7 +134,7 @@
                         <div class="upperRightCorner corner"></div>
                         <div class="lowerLeftCorner corner"></div>
                         <div class="lowerRightCorner corner"></div>
-                        <img id="startButton" class="button"
+                        <img alt="start" id="startButton" class="button"
                             src="media/start.png">
                     </div>
                     <div id="selectbox" class="buttonBorder" style="width:80px">
@@ -145,7 +142,7 @@
                         <div class="upperRightCorner corner"></div>
                         <div class="lowerLeftCorner corner"></div>
                         <div class="lowerRightCorner corner"></div>
-                        <img id="selectButton" class="button"
+                        <img alt="select" id="selectButton" class="button"
                             src="media/select.png">
                     </div>
                     <div id="menubox" class="buttonBorder" style="width:50px">
@@ -153,7 +150,7 @@
                         <div class="upperRightCorner corner"></div>
                         <div class="lowerLeftCorner corner"></div>
                         <div class="lowerRightCorner corner"></div>
-                        <img id="menuButton" class="button"
+                        <img alt="menu" id="menuButton" class="button"
                             src="media/menu.png">
                     </div>
                     <div id="dpadbox" class="buttonBorder" style="width:120px">
@@ -161,7 +158,7 @@
                         <div class="upperRightCorner corner"></div>
                         <div class="lowerLeftCorner corner"></div>
                         <div class="lowerRightCorner corner"></div>
-                        <img id="dpad" class="button selected"
+                        <img alt="dpad" id="dpad" class="button selected"
                             src="media/dpad.png">
                     </div>
                     <div id="stickbox" class="buttonBorder" style="width:120px">
@@ -169,7 +166,7 @@
                         <div class="upperRightCorner corner"></div>
                         <div class="lowerLeftCorner corner"></div>
                         <div class="lowerRightCorner corner"></div>
-                        <img id="stick"
+                        <img alt="stick" id="stick"
                             class="button" src="media/stick.png">
                     </div>
                     <div id="lbox" class="buttonBorder" style="width:94px">
@@ -177,7 +174,7 @@
                         <div class="upperRightCorner corner"></div>
                         <div class="lowerLeftCorner corner"></div>
                         <div class="lowerRightCorner corner"></div>
-                        <img id="lButton" class="button"
+                        <img alt="l" id="lButton" class="button"
                             src="media/l.png">
                     </div>
                     <div id="rbox" class="buttonBorder" style="width:94px">
@@ -185,7 +182,7 @@
                         <div class="upperRightCorner corner"></div>
                         <div class="lowerLeftCorner corner"></div>
                         <div class="lowerRightCorner corner"></div>
-                        <img id="rButton" class="button"
+                        <img alt="r" id="rButton" class="button"
                             src="media/r.png">
                     </div>
                     <div id="toggleFastForwardbox" class="buttonBorder" style="width:40px">
@@ -193,7 +190,7 @@
                         <div class="upperRightCorner corner"></div>
                         <div class="lowerLeftCorner corner"></div>
                         <div class="lowerRightCorner corner"></div>
-                        <img id="toggleFastForwardButton"
+                        <img alt="FF" id="toggleFastForwardButton"
                             class="button" src="media/ff.png">
                     </div>
                     <div id="savebox" class="buttonBorder" style="width:40px">
@@ -201,7 +198,7 @@
                         <div class="upperRightCorner corner"></div>
                         <div class="lowerLeftCorner corner"></div>
                         <div class="lowerRightCorner corner"></div>
-                        <img id="saveButton" class="button"
+                        <img alt="save" id="saveButton" class="button"
                             src="media/save.png">
                     </div>
                     <div id="loadbox" class="buttonBorder" style="width:40px">
@@ -209,7 +206,7 @@
                         <div class="upperRightCorner corner"></div>
                         <div class="lowerLeftCorner corner"></div>
                         <div class="lowerRightCorner corner"></div>
-                        <img id="loadButton" class="button"
+                        <img alt="load" id="loadButton" class="button"
                             src="media/load.png">
                     </div>
                 </div>
