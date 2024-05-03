@@ -55,7 +55,7 @@
                 </div>
                 <div class="textGroup">
                     <label for="bgColor">Background Color (any correct CSS):</label>
-                    <input type="text" name="bgColor" id="bgColor" value="black">
+                    <input type="text" name="bgColor" id="bgColor" value="navy">
                 </div>
                 <div class="textGroup">
                     <label for="canvasToShow">Canvas to show now:</label>
@@ -92,9 +92,26 @@
             </div>
             <div id="mainArea" class="portrait">
 
-                <div id="phoneCanvas" class="etePortrait">
-                    <div id="screen" class="gba"></div>
-                    <div id="controlMapping"></div>
+                <div id="phoneBorder" class="etePortrait">
+                <div id="phoneCanvas" >
+                    <canvas id="bg"></canvas>
+                    
+                   
+                    <div id="controlMapping"> <div id="screen1Box" class="buttonBorder screenBox">
+                        <div class="upperLeftCorner corner"></div>
+                        <div class="upperRightCorner corner"></div>
+                        <div class="lowerLeftCorner corner"></div>
+                        <div class="lowerRightCorner corner"></div>
+                        <div id="screen1" class="screen gba button"></div>
+                    </div>
+                    <div id="screen2Box" class="screenBox buttonBorder">
+                        <div class="upperLeftCorner corner"></div>
+                        <div class="upperRightCorner corner"></div>
+                        <div class="lowerLeftCorner corner"></div>
+                        <div class="lowerRightCorner corner"></div>
+                        <div id="screen2" class="screen gba"></div>
+                    </div></div>
+                </div>
                 </div>
                 <div id="buttonBox">
                     <div id="abox" class="buttonBorder" style="width:80px">
@@ -193,20 +210,20 @@
                         <img alt="FF" id="toggleFastForwardButton"
                             class="button" src="media/ff.png">
                     </div>
-                    <div id="savebox" class="buttonBorder" style="width:40px">
+                    <div id="quickSavebox" class="buttonBorder" style="width:40px">
                         <div class="upperLeftCorner corner"></div>
                         <div class="upperRightCorner corner"></div>
                         <div class="lowerLeftCorner corner"></div>
                         <div class="lowerRightCorner corner"></div>
-                        <img alt="save" id="saveButton" class="button"
+                        <img alt="save" id="quickSaveButton" class="button"
                             src="media/save.png">
                     </div>
-                    <div id="loadbox" class="buttonBorder" style="width:40px">
+                    <div id="quickLoadbox" class="buttonBorder" style="width:40px">
                         <div class="upperLeftCorner corner"></div>
                         <div class="upperRightCorner corner"></div>
                         <div class="lowerLeftCorner corner"></div>
                         <div class="lowerRightCorner corner"></div>
-                        <img alt="load" id="loadButton" class="button"
+                        <img alt="load" id="quickLoadButton" class="button"
                             src="media/load.png">
                     </div>
                 </div>
